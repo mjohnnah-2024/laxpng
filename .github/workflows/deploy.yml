@@ -1,0 +1,88 @@
+name: Deploy LaxPNG to Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql, dom, filter, gd, json, zip
+          coverage: none
+          tools: composer:v2
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer Dependencies
+        run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist --classmap-authoritative
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install NPM Dependencies
+        run: npm ci
+
+      - name: Build Production Assets
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Remove Dev Files Before Deploy
+        run: |
+          rm -rf .git .github node_modules tests .env.example .editorconfig .gitignore .gitattributes phpunit.xml stubs theme.svg
+
+      - name: Deploy to Production via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/' }}
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/tests/**
+            **/.env
+            **/.env.*
+            **/storage/logs/**
+            **/storage/framework/sessions/**
+            **/storage/framework/cache/**
+            **/storage/framework/views/**
+            **/.editorconfig
+            **/phpunit.xml
+            **/.DS_Store
+            **/Thumbs.db
+            **/README.md
+            **/.phpunit.cache/**
+            **/deploy.yml
+            **/theme.svg
+            **/stubs/**
+            **/prompt.md
+            **/AGENTS.md
