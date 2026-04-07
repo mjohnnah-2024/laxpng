@@ -95,30 +95,22 @@ export default function ChatShow({ conversationId: initialConversationId, conver
                         try {
                             const parsed = JSON.parse(data);
 
-                            if (parsed.conversationId) {
-                                setConversationId(parsed.conversationId);
+                            if (parsed.type === 'conversation_id' && parsed.conversation_id) {
+                                setConversationId(parsed.conversation_id);
                             }
 
-                            if (parsed.text !== undefined) {
+                            if (parsed.type === 'text_delta' && parsed.delta !== undefined) {
                                 setMessages((prev) => {
                                     const updated = [...prev];
                                     const last = updated[updated.length - 1];
                                     if (last && last.role === 'assistant') {
-                                        updated[updated.length - 1] = { ...last, content: last.content + parsed.text };
+                                        updated[updated.length - 1] = { ...last, content: last.content + parsed.delta };
                                     }
                                     return updated;
                                 });
                             }
                         } catch {
-                            // If it's not JSON, treat as plain text chunk
-                            setMessages((prev) => {
-                                const updated = [...prev];
-                                const last = updated[updated.length - 1];
-                                if (last && last.role === 'assistant') {
-                                    updated[updated.length - 1] = { ...last, content: last.content + data };
-                                }
-                                return updated;
-                            });
+                            // Non-JSON data, skip
                         }
                     }
                 }

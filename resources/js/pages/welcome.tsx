@@ -1,5 +1,6 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { BookOpen, FileText, MessageCircle, Scale, Search, ShieldCheck } from 'lucide-react';
+import AppLogoIcon from '@/components/app-logo-icon';
 import { dashboard, login, register } from '@/routes';
 
 const features = [
@@ -62,14 +63,14 @@ export default function Welcome({
                 <header className="w-full border-b border-[#e3e3e0] px-6 py-4 dark:border-[#3E3E3A]">
                     <div className="mx-auto flex max-w-6xl items-center justify-between">
                         <div className="flex items-center gap-2">
-                            <Scale className="h-6 w-6 text-[#f53003] dark:text-[#FF4433]" />
+                            <AppLogoIcon className="h-6 w-6" />
                             <span className="text-lg font-semibold">LaxPNG</span>
                         </div>
                         <nav className="flex items-center gap-4">
                             {auth.user ? (
                                 <Link
                                     href={dashboard()}
-                                    className="inline-block rounded-md bg-[#1b1b18] px-5 py-2 text-sm font-medium text-white hover:bg-black dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white"
+                                    className="inline-block rounded-md bg-[#7347FF] px-5 py-2 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
                                 >
                                     Dashboard
                                 </Link>
@@ -84,7 +85,7 @@ export default function Welcome({
                                     {canRegister && (
                                         <Link
                                             href={register()}
-                                            className="inline-block rounded-md bg-[#1b1b18] px-5 py-2 text-sm font-medium text-white hover:bg-black dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white"
+                                            className="inline-block rounded-md bg-[#7347FF] px-5 py-2 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
                                         >
                                             Get Started
                                         </Link>
@@ -103,7 +104,7 @@ export default function Welcome({
                         </span>
                         <h1 className="mb-6 text-4xl leading-tight font-bold tracking-tight lg:text-5xl">
                             Papua New Guinea Law,{' '}
-                            <span className="text-[#f53003] dark:text-[#FF4433]">
+                            <span className="text-[#7347FF] dark:text-[#AB9BFF]">
                                 Made Accessible
                             </span>
                         </h1>
@@ -117,7 +118,7 @@ export default function Welcome({
                             {auth.user ? (
                                 <Link
                                     href={dashboard()}
-                                    className="inline-block rounded-md bg-[#1b1b18] px-8 py-3 text-sm font-medium text-white hover:bg-black dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white"
+                                    className="inline-block rounded-md bg-[#7347FF] px-8 py-3 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
                                 >
                                     Go to Dashboard
                                 </Link>
@@ -126,7 +127,7 @@ export default function Welcome({
                                     {canRegister && (
                                         <Link
                                             href={register()}
-                                            className="inline-block rounded-md bg-[#1b1b18] px-8 py-3 text-sm font-medium text-white hover:bg-black dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white"
+                                            className="inline-block rounded-md bg-[#7347FF] px-8 py-3 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
                                         >
                                             Create Free Account
                                         </Link>
@@ -160,8 +161,8 @@ export default function Welcome({
                                     key={feature.title}
                                     className="rounded-xl border border-[#e3e3e0] bg-white p-6 dark:border-[#3E3E3A] dark:bg-[#161615]"
                                 >
-                                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#fff2f2] dark:bg-[#1D0002]">
-                                        <feature.icon className="h-5 w-5 text-[#f53003] dark:text-[#FF4433]" />
+                                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#F0EBFF] dark:bg-[#1A0A40]">
+                                        <feature.icon className="h-5 w-5 text-[#7347FF] dark:text-[#AB9BFF]" />
                                     </div>
                                     <h3 className="mb-2 text-base font-semibold">
                                         {feature.title}
@@ -188,7 +189,7 @@ export default function Welcome({
                         {!auth.user && canRegister && (
                             <Link
                                 href={register()}
-                                className="inline-block rounded-md bg-[#1b1b18] px-8 py-3 text-sm font-medium text-white hover:bg-black dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white"
+                                className="inline-block rounded-md bg-[#7347FF] px-8 py-3 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
                             >
                                 Get Started — It&apos;s Free
                             </Link>
@@ -200,7 +201,7 @@ export default function Welcome({
                 <footer className="border-t border-[#e3e3e0] px-6 py-8 dark:border-[#3E3E3A]">
                     <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-[#706f6c] sm:flex-row dark:text-[#A1A09A]">
                         <div className="flex items-center gap-2">
-                            <Scale className="h-4 w-4" />
+                            <AppLogoIcon className="h-4 w-4" />
                             <span>LaxPNG</span>
                         </div>
                         <p>&copy; {new Date().getFullYear()} LaxPNG. AI-powered legal research for Papua New Guinea.</p>

@@ -3,12 +3,14 @@
 namespace App\Ai\Agents;
 
 use Laravel\Ai\Attributes\MaxTokens;
+use Laravel\Ai\Attributes\Model;
 use Laravel\Ai\Attributes\Temperature;
 use Laravel\Ai\Attributes\Timeout;
 use Laravel\Ai\Contracts\Agent;
 use Laravel\Ai\Promptable;
 use Stringable;
 
+#[Model('gpt-4o')]
 #[MaxTokens(8192)]
 #[Temperature(0.2)]
 #[Timeout(120)]

@@ -4,6 +4,7 @@ namespace App\Ai\Agents;
 
 use App\Ai\Tools\LegalSearchTool;
 use Laravel\Ai\Attributes\MaxTokens;
+use Laravel\Ai\Attributes\Model;
 use Laravel\Ai\Attributes\Temperature;
 use Laravel\Ai\Attributes\Timeout;
 use Laravel\Ai\Concerns\RemembersConversations;
@@ -14,10 +15,11 @@ use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Promptable;
 use Stringable;
 
+#[Model('gpt-4o')]
 #[MaxTokens(4096)]
 #[Temperature(0.3)]
 #[Timeout(120)]
-class LegalResearchAgent implements Agent, HasTools, Conversational
+class LegalResearchAgent implements Agent, Conversational, HasTools
 {
     use Promptable, RemembersConversations;
 

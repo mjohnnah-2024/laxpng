@@ -89,15 +89,46 @@ class ChatController extends Controller
                 ->stream($query);
         }
 
-        return $stream
-            ->then(function (StreamedAgentResponse $response) use ($user, $query, $startTime) {
-                SearchLog::create([
-                    'user_id' => $user->id,
-                    'query' => $query,
-                    'results_count' => 1,
-                    'response_time_ms' => (int) ((microtime(true) - $startTime) * 1000),
-                ]);
-            });
+        $stream->then(function (StreamedAgentResponse $response) use ($user, $query, $startTime) {
+            SearchLog::create([
+                'user_id' => $user->id,
+                'query' => $query,
+                'results_count' => 1,
+                'response_time_ms' => (int) ((microtime(true) - $startTime) * 1000),
+            ]);
+        });
+
+        return response()->stream(function () use ($stream, $agent) {
+            foreach ($stream as $event) {
+                echo 'data: '.((string) $event)."\n\n";
+
+                if (ob_get_level() > 0) {
+                    ob_flush();
+                }
+
+                flush();
+            }
+
+            $resolvedConversationId = $agent->currentConversation();
+
+            if ($resolvedConversationId) {
+                echo 'data: '.json_encode(['type' => 'conversation_id', 'conversation_id' => $resolvedConversationId])."\n\n";
+
+                if (ob_get_level() > 0) {
+                    ob_flush();
+                }
+
+                flush();
+            }
+
+            echo "data: [DONE]\n\n";
+
+            if (ob_get_level() > 0) {
+                ob_flush();
+            }
+
+            flush();
+        }, headers: ['Content-Type' => 'text/event-stream']);
     }
 
     /**

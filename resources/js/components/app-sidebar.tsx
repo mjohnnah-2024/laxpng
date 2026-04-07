@@ -62,7 +62,7 @@ const mainNavItems: NavItem[] = [
 const footerNavItems: NavItem[] = [
     {
         title: 'Repository',
-        href: 'https://github.com/mjohnnah-2024',
+        href: 'https://github.com/mjohnnah-2024//laxpng',
         icon: FolderGit2,
     },
     {

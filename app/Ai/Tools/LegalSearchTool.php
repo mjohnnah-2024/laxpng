@@ -55,7 +55,8 @@ class LegalSearchTool implements Tool
             'limit' => $schema->integer()
                 ->description('Maximum number of results to return (default: 5)')
                 ->min(1)
-                ->max(10),
+                ->max(10)
+                ->required(),
         ];
     }
 }
