@@ -4,85 +4,85 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch: # Allow manual deployment trigger
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment: production # GitHub environment for approval/protection
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+    - name: Checkout Code
+      uses: actions/checkout@v4 # Updated to latest version
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.3'
-          extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql, dom, filter, gd, json, zip
-          coverage: none
-          tools: composer:v2
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql, dom, filter, gd, json, zip
+        coverage: none # Disable coverage for faster builds
+        tools: composer:v2
 
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
-      - name: Cache Composer Dependencies
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+    - name: Cache Composer Dependencies
+      uses: actions/cache@v4
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
 
-      - name: Install Composer Dependencies
-        run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist --classmap-authoritative
+    - name: Install Composer Dependencies
+      run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist --classmap-authoritative
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+    - name: Setup Node.js
+      uses: actions/setup-node@v4 # Updated to latest version
+      with:
+        node-version: '20'
+        cache: 'npm' # Built-in npm cache
 
-      - name: Install NPM Dependencies
-        run: npm ci
+    - name: Install NPM Dependencies
+      run: npm ci # Use ci for production (faster, more reliable)
 
-      - name: Build Production Assets
-        run: npm run build
-        env:
-          NODE_ENV: production
+    - name: Build Production Assets
+      run: npm run build
+      env:
+        NODE_ENV: production
 
-      - name: Remove Dev Files Before Deploy
-        run: |
-          rm -rf .git .github node_modules tests .env.example .editorconfig .gitignore .gitattributes phpunit.xml stubs theme.svg
+    - name: Create Deployment Artifact
+      run: |
+        # Remove development files from deployment
+        rm -rf .git .github node_modules tests .env.example .editorconfig .gitignore .gitattributes phpunit.xml
 
-      - name: Deploy to Production via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/' }}
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/tests/**
-            **/.env
-            **/.env.*
-            **/storage/logs/**
-            **/storage/framework/sessions/**
-            **/storage/framework/cache/**
-            **/storage/framework/views/**
-            **/.editorconfig
-            **/phpunit.xml
-            **/.DS_Store
-            **/Thumbs.db
-            **/README.md
-            **/.phpunit.cache/**
-            **/deploy.yml
-            **/theme.svg
-            **/stubs/**
-            **/prompt.md
-            **/AGENTS.md
+    - name: Deploy to Production Server via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: / # Root directory on server (adjust if needed, e.g., /public_html/)
+        dangerous-clean-slate: false # Prevent deletion of .env and other server files
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/tests/**
+          **/.env
+          **/.env.*
+          **/storage/logs/**
+          **/storage/framework/sessions/**
+          **/storage/framework/cache/**
+          **/.editorconfig
+          **/phpunit.xml
+          **/.DS_Store
+          **/Thumbs.db
+          **/README.md
+          **/DEPLOYMENT.md
+          **/PRODUCTION_CHECKLIST.md
+          **/.phpunit.cache/**
+          **/deploy*.sh
+          **/deploy*.bat
+          **/verify-deployment.
