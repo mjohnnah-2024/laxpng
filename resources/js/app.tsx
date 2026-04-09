@@ -26,7 +26,7 @@ createInertiaApp({
         return <TooltipProvider delayDuration={0}>{app}</TooltipProvider>;
     },
     progress: {
-        color: '#4B5563',
+        color: 'oklch(0.49 0.19 286)',
     },
 });
 

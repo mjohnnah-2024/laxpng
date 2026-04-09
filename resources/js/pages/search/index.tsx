@@ -40,7 +40,7 @@ export default function SearchIndex({ query, answer }: Props) {
                             {form.processing ? 'Searching...' : 'Search'}
                         </button>
                     </div>
-                    {form.errors.query && <p className="mt-1 text-sm text-red-600">{form.errors.query}</p>}
+                    {form.errors.query && <p className="mt-1 text-sm text-destructive">{form.errors.query}</p>}
                 </form>
 
                 {answer && (

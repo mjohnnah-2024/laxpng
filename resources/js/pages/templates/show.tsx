@@ -107,7 +107,7 @@ export default function TemplatesShow({ template, errors }: Props) {
                                 />
                             )}
                             {errors?.[`fields.${field.name}`] && (
-                                <p className="mt-1 text-xs text-red-500">{errors[`fields.${field.name}`]}</p>
+                                <p className="mt-1 text-xs text-destructive">{errors[`fields.${field.name}`]}</p>
                             )}
                         </div>
                     ))}

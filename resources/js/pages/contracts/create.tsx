@@ -53,10 +53,10 @@ export default function ContractsCreate({ errors }: Props) {
                             type="file"
                             accept=".pdf"
                             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-                            className="border-input bg-background ring-offset-background focus-visible:ring-ring w-full rounded-md border px-3 py-2 text-sm file:mr-2 file:rounded file:border-0 file:bg-zinc-100 file:px-3 file:py-1 file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none dark:file:bg-zinc-800"
+                            className="border-input bg-background ring-offset-background focus-visible:ring-ring w-full rounded-md border px-3 py-2 text-sm file:mr-2 file:rounded file:border-0 file:bg-muted file:px-3 file:py-1 file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                         />
                         {errors?.document && (
-                            <p className="mt-1 text-sm text-red-600">{errors.document}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors.document}</p>
                         )}
                     </div>
 

@@ -24,16 +24,16 @@ interface Props {
 }
 
 const riskColors: Record<string, string> = {
-    low: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-    medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-    high: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
+    low: 'bg-success/10 text-success',
+    medium: 'bg-warning/10 text-warning-foreground',
+    high: 'bg-destructive/10 text-destructive',
 };
 
 const statusColors: Record<string, string> = {
-    pending: 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200',
-    processing: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-    completed: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-    failed: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
+    pending: 'bg-muted text-muted-foreground',
+    processing: 'bg-info/10 text-info',
+    completed: 'bg-success/10 text-success',
+    failed: 'bg-destructive/10 text-destructive',
 };
 
 export default function ContractsIndex({ analyses }: Props) {

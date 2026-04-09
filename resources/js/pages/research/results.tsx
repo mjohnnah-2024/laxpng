@@ -38,11 +38,11 @@ const typeLabels: Record<string, string> = {
 
 function scoreColor(score: number): string {
     if (score >= 0.8) {
-return 'text-green-600 dark:text-green-400';
+return 'text-success';
 }
 
     if (score >= 0.5) {
-return 'text-yellow-600 dark:text-yellow-400';
+return 'text-warning';
 }
 
     return 'text-muted-foreground';

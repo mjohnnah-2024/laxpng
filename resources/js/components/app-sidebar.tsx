@@ -67,7 +67,7 @@ const footerNavItems: NavItem[] = [
     },
     {
         title: 'Documentation',
-        href: 'https://jethrotech.com.pg',
+        href: 'https://laxpng.mjohnnah.dev',
         icon: BookOpen,
     },
 ];

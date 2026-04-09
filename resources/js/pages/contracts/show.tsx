@@ -36,15 +36,15 @@ interface Props {
 }
 
 const riskColors: Record<string, string> = {
-    low: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-    medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-    high: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
+    low: 'bg-success/10 text-success',
+    medium: 'bg-warning/10 text-warning-foreground',
+    high: 'bg-destructive/10 text-destructive',
 };
 
 const riskBorderColors: Record<string, string> = {
-    low: 'border-l-green-500',
-    medium: 'border-l-yellow-500',
-    high: 'border-l-red-500',
+    low: 'border-l-success',
+    medium: 'border-l-warning',
+    high: 'border-l-destructive',
 };
 
 export default function ContractsShow({ analysis }: Props) {
@@ -66,18 +66,18 @@ export default function ContractsShow({ analysis }: Props) {
                 </div>
 
                 {analysis.status === 'processing' && (
-                    <div className="rounded-lg border border-blue-200 bg-blue-50 p-6 text-center dark:border-blue-800 dark:bg-blue-950">
-                        <p className="font-medium text-blue-800 dark:text-blue-200">Analysis in progress...</p>
-                        <p className="mt-1 text-sm text-blue-600 dark:text-blue-300">
+                    <div className="rounded-lg border border-info/20 bg-info/10 p-6 text-center">
+                        <p className="font-medium text-info">Analysis in progress...</p>
+                        <p className="mt-1 text-sm text-info/80">
                             Please check back shortly.
                         </p>
                     </div>
                 )}
 
                 {analysis.status === 'failed' && (
-                    <div className="rounded-lg border border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-950">
-                        <p className="font-medium text-red-800 dark:text-red-200">Analysis Failed</p>
-                        <p className="mt-1 text-sm text-red-600 dark:text-red-300">
+                    <div className="rounded-lg border border-destructive/20 bg-destructive/10 p-6">
+                        <p className="font-medium text-destructive">Analysis Failed</p>
+                        <p className="mt-1 text-sm text-destructive/80">
                             {results?.error ?? 'An unexpected error occurred. Please try uploading again.'}
                         </p>
                         <Link href={contractsCreate.url()} className="mt-3 inline-block">
@@ -154,7 +154,7 @@ export default function ContractsShow({ analysis }: Props) {
                                 <ul className="space-y-2">
                                     {results.recommendations.map((rec, i) => (
                                         <li key={i} className="text-muted-foreground flex items-start gap-2 text-sm">
-                                            <span className="mt-1 text-green-600">•</span>
+                                            <span className="mt-1 text-success">•</span>
                                             {rec}
                                         </li>
                                     ))}
@@ -164,13 +164,13 @@ export default function ContractsShow({ analysis }: Props) {
 
                         {/* Missing Clauses */}
                         {results.missing_clauses.length > 0 && (
-                            <div className="rounded-lg border border-amber-200 bg-amber-50 p-6 dark:border-amber-800 dark:bg-amber-950">
-                                <h2 className="mb-4 text-lg font-semibold text-amber-800 dark:text-amber-200">
+                            <div className="rounded-lg border border-warning/20 bg-warning/10 p-6">
+                                <h2 className="mb-4 text-lg font-semibold text-warning-foreground">
                                     Missing / Recommended Clauses
                                 </h2>
                                 <ul className="space-y-2">
                                     {results.missing_clauses.map((clause, i) => (
-                                        <li key={i} className="flex items-start gap-2 text-sm text-amber-700 dark:text-amber-300">
+                                        <li key={i} className="flex items-start gap-2 text-sm text-warning-foreground">
                                             <span className="mt-1">⚠</span>
                                             {clause}
                                         </li>

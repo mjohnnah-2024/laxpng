@@ -68,7 +68,7 @@ export default function TemplatesResult({ template, fields, generatedContent }: 
                 {/* Generated Content */}
                 <div
                     ref={contentRef}
-                    className="rounded-lg border bg-white p-6 dark:bg-zinc-900"
+                    className="rounded-lg border bg-card p-6"
                 >
                     <div className="prose dark:prose-invert max-w-none whitespace-pre-wrap text-sm leading-relaxed">
                         {generatedContent}

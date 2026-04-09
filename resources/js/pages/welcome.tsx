@@ -58,19 +58,19 @@ export default function Welcome({
                     rel="stylesheet"
                 />
             </Head>
-            <div className="flex min-h-screen flex-col bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a] dark:text-[#EDEDEC]">
+            <div className="flex min-h-screen flex-col bg-background text-foreground">
                 {/* Header */}
-                <header className="w-full border-b border-[#e3e3e0] px-4 py-4 sm:px-6 dark:border-[#3E3E3A]">
+                <header className="w-full border-b border-border px-4 py-4 sm:px-6">
                     <div className="mx-auto flex max-w-6xl items-center justify-between">
                         <div className="flex items-center gap-2">
-                            <AppLogoIcon className="h-6 w-6" />
+                            <AppLogoIcon className="h-6 w-6 text-primary" />
                             <span className="text-lg font-semibold">LaxPNG</span>
                         </div>
                         <nav className="flex items-center gap-2 sm:gap-4">
                             {auth.user ? (
                                 <Link
                                     href={dashboard()}
-                                    className="inline-block rounded-md bg-[#7347FF] px-5 py-2 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
+                                    className="inline-block rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                                 >
                                     Dashboard
                                 </Link>
@@ -78,14 +78,14 @@ export default function Welcome({
                                 <>
                                     <Link
                                         href={login()}
-                                        className="inline-block rounded-md px-5 py-2 text-sm font-medium text-[#1b1b18] hover:bg-[#f5f5f3] dark:text-[#EDEDEC] dark:hover:bg-[#1C1C1A]"
+                                        className="inline-block rounded-md px-5 py-2 text-sm font-medium text-foreground hover:bg-muted"
                                     >
                                         Log in
                                     </Link>
                                     {canRegister && (
                                         <Link
                                             href={register()}
-                                            className="inline-block rounded-md bg-[#7347FF] px-5 py-2 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
+                                            className="inline-block rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                                         >
                                             Get Started
                                         </Link>
@@ -99,16 +99,16 @@ export default function Welcome({
                 {/* Hero */}
                 <section className="flex flex-col items-center px-4 pt-12 pb-12 text-center sm:px-6 sm:pt-16 sm:pb-14 lg:pt-28 lg:pb-24">
                     <div className="mx-auto max-w-3xl">
-                        <span className="mb-4 inline-block rounded-full border border-[#e3e3e0] px-3 py-1 text-xs font-medium text-[#706f6c] dark:border-[#3E3E3A] dark:text-[#A1A09A]">
+                        <span className="mb-4 inline-block rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground">
                             AI-Powered Legal Research
                         </span>
                         <h1 className="mb-6 text-2xl leading-tight font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
                             Under active development,{' '}
-                            <span className="text-[#7347FF] dark:text-[#AB9BFF]">
+                            <span className="text-primary">
                                 PNG Law - Made Accessible
                             </span>
                         </h1>
-                        <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-[#706f6c] sm:mb-10 sm:text-lg dark:text-[#A1A09A]">
+                        <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mb-10 sm:text-lg">
                             LaxPNG brings together AI and PNG&apos;s legal framework to help
                             lawyers, students, and researchers find answers faster. Search
                             legislation, analyse contracts, and generate legal documents — all
@@ -118,7 +118,7 @@ export default function Welcome({
                             {auth.user ? (
                                 <Link
                                     href={dashboard()}
-                                    className="inline-block rounded-md bg-[#7347FF] px-8 py-3 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
+                                    className="inline-block rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                                 >
                                     Go to Dashboard
                                 </Link>
@@ -127,14 +127,14 @@ export default function Welcome({
                                     {canRegister && (
                                         <Link
                                             href={register()}
-                                            className="inline-block rounded-md bg-[#7347FF] px-8 py-3 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
+                                            className="inline-block rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                                         >
                                             Create Free Account
                                         </Link>
                                     )}
                                     <Link
                                         href={login()}
-                                        className="inline-block rounded-md border border-[#19140035] px-8 py-3 text-sm font-medium text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+                                        className="inline-block rounded-md border border-border px-8 py-3 text-sm font-medium text-foreground hover:border-border/80"
                                     >
                                         Sign In
                                     </Link>
@@ -145,13 +145,13 @@ export default function Welcome({
                 </section>
 
                 {/* Features */}
-                <section className="border-t border-[#e3e3e0] px-4 py-12 sm:px-6 sm:py-16 lg:py-24 dark:border-[#3E3E3A]">
+                <section className="border-t border-border px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
                     <div className="mx-auto max-w-6xl">
                         <div className="mb-8 text-center sm:mb-12">
                             <h2 className="mb-3 text-xl font-semibold sm:text-2xl lg:text-3xl">
                                 Everything you need for PNG legal research
                             </h2>
-                            <p className="text-[#706f6c] dark:text-[#A1A09A]">
+                            <p className="text-muted-foreground">
                                 Built specifically for Papua New Guinea&apos;s legal system.
                             </p>
                         </div>
@@ -159,15 +159,15 @@ export default function Welcome({
                             {features.map((feature) => (
                                 <div
                                     key={feature.title}
-                                    className="rounded-xl border border-[#e3e3e0] bg-white p-6 dark:border-[#3E3E3A] dark:bg-[#161615]"
+                                    className="rounded-xl border border-border bg-card p-6"
                                 >
-                                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#F0EBFF] dark:bg-[#1A0A40]">
-                                        <feature.icon className="h-5 w-5 text-[#7347FF] dark:text-[#AB9BFF]" />
+                                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                                        <feature.icon className="h-5 w-5 text-primary" />
                                     </div>
                                     <h3 className="mb-2 text-base font-semibold">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-sm leading-relaxed text-[#706f6c] dark:text-[#A1A09A]">
+                                    <p className="text-sm leading-relaxed text-muted-foreground">
                                         {feature.description}
                                     </p>
                                 </div>
@@ -177,19 +177,19 @@ export default function Welcome({
                 </section>
 
                 {/* CTA */}
-                <section className="border-t border-[#e3e3e0] px-4 py-12 sm:px-6 sm:py-16 lg:py-24 dark:border-[#3E3E3A]">
+                <section className="border-t border-border px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="mb-4 text-xl font-semibold sm:text-2xl lg:text-3xl">
                             Ready to streamline your legal research?
                         </h2>
-                        <p className="mb-8 text-[#706f6c] dark:text-[#A1A09A]">
+                        <p className="mb-8 text-muted-foreground">
                             Join lawyers, law students, and researchers across Papua New
                             Guinea who are using LaxPNG to work smarter.
                         </p>
                         {!auth.user && canRegister && (
                             <Link
                                 href={register()}
-                                className="inline-block rounded-md bg-[#7347FF] px-8 py-3 text-sm font-medium text-white hover:bg-[#5C30E6] dark:bg-[#AB9BFF] dark:text-[#1C1C1A] dark:hover:bg-[#C4B8FF]"
+                                className="inline-block rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                             >
                                 Get Started — It&apos;s Free
                             </Link>
@@ -198,10 +198,10 @@ export default function Welcome({
                 </section>
 
                 {/* Footer */}
-                <footer className="border-t border-[#e3e3e0] px-4 py-6 sm:px-6 sm:py-8 dark:border-[#3E3E3A]">
-                    <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center text-sm text-[#706f6c] sm:flex-row sm:text-left dark:text-[#A1A09A]">
+                <footer className="border-t border-border px-4 py-6 sm:px-6 sm:py-8">
+                    <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center text-sm text-muted-foreground sm:flex-row sm:text-left">
                         <div className="flex items-center gap-2">
-                            <AppLogoIcon className="h-4 w-4" />
+                            <AppLogoIcon className="h-4 w-4 text-primary" />
                             <span>LaxPNG</span>
                         </div>
                         <p>&copy; {new Date().getFullYear()} LaxPNG. AI-powered legal research for Papua New Guinea.</p>
