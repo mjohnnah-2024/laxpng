@@ -26,8 +26,8 @@ export default function ChatIndex({ conversations }: Props) {
         <>
             <Head title="AI Chat" />
             <div className="mx-auto max-w-4xl p-4">
-                <div className="mb-6 flex items-center justify-between">
-                    <h1 className="text-2xl font-bold">AI Chat</h1>
+                <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <h1 className="text-xl font-bold sm:text-2xl">AI Chat</h1>
                     <Link href={chatCreate.url()}>
                         <Button>New Conversation</Button>
                     </Link>
@@ -41,7 +41,7 @@ export default function ChatIndex({ conversations }: Props) {
                 ) : (
                     <div className="space-y-3">
                         {conversations.data.map((conversation) => (
-                            <div key={conversation.id} className="flex items-center justify-between rounded-lg border p-4">
+                            <div key={conversation.id} className="flex flex-col gap-2 rounded-lg border p-4 sm:flex-row sm:items-center sm:justify-between">
                                 <Link
                                     href={chatShow.url(conversation.id)}
                                     className="flex-1 hover:underline"

@@ -70,7 +70,7 @@ return;
                 </Link>
 
                 {/* Search Form */}
-                <form onSubmit={handleSearch} className="mb-6 flex gap-2">
+                <form onSubmit={handleSearch} className="mb-6 flex flex-col gap-2 sm:flex-row">
                     <input
                         type="text"
                         value={searchQuery}
@@ -95,7 +95,7 @@ return;
                     <div className="space-y-4">
                         {results.map((result) => (
                             <div key={result.chunk_id} className="rounded-lg border p-4">
-                                <div className="mb-2 flex items-start justify-between gap-4">
+                                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                                     <div>
                                         <Link
                                             href={researchShow.url({ document: result.document.id })}

@@ -45,7 +45,7 @@ export default function DocumentShow({ document }: Props) {
                     &larr; Back to Documents
                 </Link>
 
-                <h1 className="mb-6 text-2xl font-bold">{document.title}</h1>
+                <h1 className="mb-6 text-xl font-bold sm:text-2xl">{document.title}</h1>
 
                 <div className="space-y-6">
                     {/* Details */}
@@ -99,7 +99,7 @@ export default function DocumentShow({ document }: Props) {
                     )}
 
                     {/* Actions */}
-                    <div className="flex gap-3">
+                    <div className="flex flex-col gap-3 sm:flex-row">
                         {(document.status === 'failed' || document.status === 'completed') && (
                             <Button variant="outline" onClick={handleReprocess}>
                                 Reprocess

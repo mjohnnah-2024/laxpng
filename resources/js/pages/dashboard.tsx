@@ -52,10 +52,10 @@ export default function Dashboard({ stats, recentSearches, recentAnalyses }: Das
     return (
         <>
             <Head title="Dashboard" />
-            <div className="flex h-full flex-1 flex-col gap-6 overflow-x-auto p-4">
+            <div className="flex h-full flex-1 flex-col gap-4 p-4 sm:gap-6">
                 {/* Welcome */}
                 <div>
-                    <h1 className="text-2xl font-bold tracking-tight">Welcome back, {user.name.split(' ')[0]}</h1>
+                    <h1 className="text-xl font-bold tracking-tight sm:text-2xl">Welcome back, {user.name.split(' ')[0]}</h1>
                     <p className="text-muted-foreground">Here's an overview of your legal research activity.</p>
                 </div>
 

@@ -38,10 +38,10 @@ export default function SearchLogsIndex({ logs, filters }: Props) {
         <>
             <Head title="Search Logs" />
             <div className="mx-auto max-w-6xl p-4">
-                <h1 className="mb-6 text-2xl font-bold">Search Logs</h1>
+                <h1 className="mb-6 text-xl font-bold sm:text-2xl">Search Logs</h1>
 
                 {/* Search Filter */}
-                <div className="mb-6 flex gap-3">
+                <div className="mb-6 flex flex-col gap-3 sm:flex-row">
                     <input
                         type="text"
                         placeholder="Search by query..."

@@ -18,13 +18,13 @@ export default function SearchIndex({ query, answer }: Props) {
         <>
             <Head title="Legal Research" />
             <div className="mx-auto max-w-4xl p-4">
-                <h1 className="mb-2 text-2xl font-bold">Legal Research</h1>
+                <h1 className="mb-2 text-xl font-bold sm:text-2xl">Legal Research</h1>
                 <p className="text-muted-foreground mb-6">
                     Ask questions about Papua New Guinea law. Answers are grounded in PNG legal documents.
                 </p>
 
                 <form onSubmit={handleSubmit} className="mb-8">
-                    <div className="flex gap-2">
+                    <div className="flex flex-col gap-2 sm:flex-row">
                         <input
                             type="text"
                             value={form.data.query}

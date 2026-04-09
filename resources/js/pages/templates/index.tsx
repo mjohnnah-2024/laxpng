@@ -48,7 +48,7 @@ export default function TemplatesIndex({ templates, categories, filters }: Props
         <>
             <Head title="Document Templates" />
             <div className="mx-auto max-w-6xl p-4">
-                <h1 className="mb-2 text-2xl font-bold">Legal Document Templates</h1>
+                <h1 className="mb-2 text-xl font-bold sm:text-2xl">Legal Document Templates</h1>
                 <p className="text-muted-foreground mb-6">
                     Browse fillable legal document templates for Papua New Guinea. Select a template to fill in the details and generate your document.
                 </p>

@@ -54,22 +54,22 @@ export default function AdminTemplatesIndex({ templates, categories, filters }: 
         <>
             <Head title="Manage Templates" />
             <div className="mx-auto max-w-6xl p-4">
-                <div className="mb-6 flex items-center justify-between">
-                    <h1 className="text-2xl font-bold">Manage Templates</h1>
+                <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <h1 className="text-xl font-bold sm:text-2xl">Manage Templates</h1>
                     <Link href={templatesCreate.url()}>
                         <Button size="sm">Create Template</Button>
                     </Link>
                 </div>
 
                 {/* Filters */}
-                <div className="mb-6 flex flex-wrap gap-3">
+                <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     <input
                         type="text"
                         placeholder="Search by title..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         onKeyDown={(e) => e.key === 'Enter' && applyFilters()}
-                        className="border-input bg-background ring-offset-background focus-visible:ring-ring rounded-md border px-3 py-2 text-sm focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+                        className="border-input bg-background ring-offset-background focus-visible:ring-ring w-full rounded-md border px-3 py-2 text-sm focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none sm:w-auto"
                     />
                     <select
                         value={category}
@@ -77,7 +77,7 @@ export default function AdminTemplatesIndex({ templates, categories, filters }: 
                             setCategory(e.target.value);
                             applyFilters({ category: e.target.value || undefined });
                         }}
-                        className="border-input bg-background rounded-md border px-3 py-2 text-sm"
+                        className="border-input bg-background w-full rounded-md border px-3 py-2 text-sm sm:w-auto"
                     >
                         <option value="">All Categories</option>
                         {categories.map((c) => (

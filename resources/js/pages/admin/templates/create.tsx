@@ -61,7 +61,7 @@ export default function AdminTemplatesCreate({ errors }: Props) {
                     &larr; Back to Templates
                 </Link>
 
-                <h1 className="mb-6 text-2xl font-bold">Create Template</h1>
+                <h1 className="mb-6 text-xl font-bold sm:text-2xl">Create Template</h1>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
@@ -126,7 +126,7 @@ export default function AdminTemplatesCreate({ errors }: Props) {
 
                         <div className="space-y-3">
                             {fields.map((field, i) => (
-                                <div key={i} className="flex items-start gap-2 rounded-lg border p-3">
+                                <div key={i} className="flex flex-col gap-2 rounded-lg border p-3 sm:flex-row sm:items-start">
                                     <div className="flex-1 space-y-2">
                                         <input
                                             type="text"
@@ -139,7 +139,7 @@ export default function AdminTemplatesCreate({ errors }: Props) {
                                             <p className="text-xs text-red-600">{errors[`fields.${i}.name`]}</p>
                                         )}
                                     </div>
-                                    <div className="w-32">
+                                    <div className="w-full sm:w-32">
                                         <select
                                             value={field.type}
                                             onChange={(e) => updateField(i, 'type', e.target.value)}

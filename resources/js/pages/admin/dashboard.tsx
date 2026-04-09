@@ -48,33 +48,33 @@ export default function AdminDashboard({ stats, recentDocuments, recentSearches 
         <>
             <Head title="Admin Dashboard" />
             <div className="mx-auto max-w-6xl p-4">
-                <h1 className="mb-6 text-2xl font-bold">Admin Dashboard</h1>
+                <h1 className="mb-6 text-xl font-bold sm:text-2xl">Admin Dashboard</h1>
 
                 {/* Stats Cards */}
-                <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    <Link href={usersIndex.url()} className="hover:border-primary/50 rounded-lg border p-4 transition-colors">
-                        <p className="text-muted-foreground text-sm font-medium">Total Users</p>
-                        <p className="text-3xl font-bold">{stats.users}</p>
+                <div className="mb-8 grid gap-4 grid-cols-2 lg:grid-cols-3">
+                    <Link href={usersIndex.url()} className="hover:border-primary/50 rounded-lg border p-3 transition-colors sm:p-4">
+                        <p className="text-muted-foreground text-xs font-medium sm:text-sm">Total Users</p>
+                        <p className="text-2xl font-bold sm:text-3xl">{stats.users}</p>
                     </Link>
-                    <Link href={docsIndex.url()} className="hover:border-primary/50 rounded-lg border p-4 transition-colors">
-                        <p className="text-muted-foreground text-sm font-medium">Documents</p>
-                        <p className="text-3xl font-bold">{stats.documents}</p>
+                    <Link href={docsIndex.url()} className="hover:border-primary/50 rounded-lg border p-3 transition-colors sm:p-4">
+                        <p className="text-muted-foreground text-xs font-medium sm:text-sm">Documents</p>
+                        <p className="text-2xl font-bold sm:text-3xl">{stats.documents}</p>
                     </Link>
-                    <Link href={templatesIndex.url()} className="hover:border-primary/50 rounded-lg border p-4 transition-colors">
-                        <p className="text-muted-foreground text-sm font-medium">Templates</p>
-                        <p className="text-3xl font-bold">{stats.templates}</p>
+                    <Link href={templatesIndex.url()} className="hover:border-primary/50 rounded-lg border p-3 transition-colors sm:p-4">
+                        <p className="text-muted-foreground text-xs font-medium sm:text-sm">Templates</p>
+                        <p className="text-2xl font-bold sm:text-3xl">{stats.templates}</p>
                     </Link>
-                    <div className="rounded-lg border p-4">
-                        <p className="text-muted-foreground text-sm font-medium">Contract Analyses</p>
-                        <p className="text-3xl font-bold">{stats.analyses}</p>
+                    <div className="rounded-lg border p-3 sm:p-4">
+                        <p className="text-muted-foreground text-xs font-medium sm:text-sm">Contract Analyses</p>
+                        <p className="text-2xl font-bold sm:text-3xl">{stats.analyses}</p>
                     </div>
-                    <Link href={searchLogsIndex.url()} className="hover:border-primary/50 rounded-lg border p-4 transition-colors">
-                        <p className="text-muted-foreground text-sm font-medium">Search Queries</p>
-                        <p className="text-3xl font-bold">{stats.searches}</p>
+                    <Link href={searchLogsIndex.url()} className="hover:border-primary/50 rounded-lg border p-3 transition-colors sm:p-4">
+                        <p className="text-muted-foreground text-xs font-medium sm:text-sm">Search Queries</p>
+                        <p className="text-2xl font-bold sm:text-3xl">{stats.searches}</p>
                     </Link>
-                    <Link href={docsIndex.url({ query: { status: 'pending' } })} className="hover:border-primary/50 rounded-lg border p-4 transition-colors">
-                        <p className="text-muted-foreground text-sm font-medium">Pending Documents</p>
-                        <p className="text-3xl font-bold">{stats.pending_documents}</p>
+                    <Link href={docsIndex.url({ query: { status: 'pending' } })} className="hover:border-primary/50 rounded-lg border p-3 transition-colors sm:p-4">
+                        <p className="text-muted-foreground text-xs font-medium sm:text-sm">Pending Documents</p>
+                        <p className="text-2xl font-bold sm:text-3xl">{stats.pending_documents}</p>
                     </Link>
                 </div>
 

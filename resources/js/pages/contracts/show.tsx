@@ -59,7 +59,7 @@ export default function ContractsShow({ analysis }: Props) {
                 </Link>
 
                 <div className="mb-6">
-                    <h1 className="text-2xl font-bold">{analysis.document_name}</h1>
+                    <h1 className="text-xl font-bold sm:text-2xl">{analysis.document_name}</h1>
                     <p className="text-muted-foreground mt-1 text-sm">
                         Analyzed on {new Date(analysis.created_at).toLocaleDateString()}
                     </p>
@@ -181,7 +181,7 @@ export default function ContractsShow({ analysis }: Props) {
                     </div>
                 )}
 
-                <div className="mt-8 flex gap-3">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <Link href={contractsCreate.url()}>
                         <Button variant="outline">Analyze Another Document</Button>
                     </Link>

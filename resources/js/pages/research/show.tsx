@@ -55,7 +55,7 @@ export default function ResearchShow({ document }: Props) {
 
                 {/* Document Header */}
                 <div className="mb-8">
-                    <h1 className="text-2xl font-bold">{document.title}</h1>
+                    <h1 className="text-xl font-bold sm:text-2xl">{document.title}</h1>
                     <div className="text-muted-foreground mt-2 flex flex-wrap gap-3 text-sm">
                         <span className="bg-secondary inline-block rounded px-2 py-0.5 text-xs font-medium">
                             {typeLabels[document.type] ?? document.type}

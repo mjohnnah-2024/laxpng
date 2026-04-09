@@ -140,12 +140,12 @@ export default function ChatShow({ conversationId: initialConversationId, conver
             <Head title={conversationTitle ?? 'AI Chat'} />
             <div className="flex h-full flex-col">
                 {/* Header */}
-                <div className="flex items-center justify-between border-b px-4 py-3">
-                    <div className="flex items-center gap-3">
-                        <Link href={chatIndex.url()} className="text-muted-foreground hover:text-foreground text-sm">
-                            &larr; Conversations
+                <div className="flex flex-col gap-2 border-b px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-center gap-3 min-w-0">
+                        <Link href={chatIndex.url()} className="text-muted-foreground hover:text-foreground shrink-0 text-sm">
+                            &larr; <span className="hidden sm:inline">Conversations</span>
                         </Link>
-                        <h1 className="text-lg font-semibold">{conversationTitle ?? 'New Conversation'}</h1>
+                        <h1 className="truncate text-base font-semibold sm:text-lg">{conversationTitle ?? 'New Conversation'}</h1>
                     </div>
                     <Button variant="outline" size="sm" onClick={handleNewChat}>
                         New Chat
@@ -170,7 +170,7 @@ export default function ChatShow({ conversationId: initialConversationId, conver
                                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                             >
                                 <div
-                                    className={`max-w-[80%] rounded-lg px-4 py-3 ${
+                                    className={`max-w-[90%] rounded-lg px-4 py-3 sm:max-w-[80%] ${
                                         message.role === 'user'
                                             ? 'bg-primary text-primary-foreground'
                                             : 'bg-muted'

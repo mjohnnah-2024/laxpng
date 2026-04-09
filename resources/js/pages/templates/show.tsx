@@ -66,7 +66,7 @@ export default function TemplatesShow({ template, errors }: Props) {
                     <span className="bg-secondary mb-2 inline-block rounded px-2 py-0.5 text-xs font-medium">
                         {categoryLabels[template.category] ?? template.category}
                     </span>
-                    <h1 className="text-2xl font-bold">{template.title}</h1>
+                    <h1 className="text-xl font-bold sm:text-2xl">{template.title}</h1>
                     {template.description && (
                         <p className="text-muted-foreground mt-1">{template.description}</p>
                     )}

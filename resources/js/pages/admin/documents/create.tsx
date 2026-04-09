@@ -46,7 +46,7 @@ export default function DocumentCreate({ errors }: Props) {
                     &larr; Back to Documents
                 </Link>
 
-                <h1 className="mb-6 text-2xl font-bold">Upload Legal Document</h1>
+                <h1 className="mb-6 text-xl font-bold sm:text-2xl">Upload Legal Document</h1>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>

@@ -79,7 +79,7 @@ return;
         <>
             <Head title="Legal Document Library" />
             <div className="mx-auto max-w-6xl p-4">
-                <h1 className="mb-2 text-2xl font-bold">Legal Document Library</h1>
+                <h1 className="mb-2 text-xl font-bold sm:text-2xl">Legal Document Library</h1>
                 <p className="text-muted-foreground mb-6">
                     Browse and search Papua New Guinea legal documents, acts, case law, and regulations.
                 </p>
@@ -87,7 +87,7 @@ return;
                 {/* Semantic Search */}
                 <div className="mb-6 rounded-lg border bg-accent/30 p-4">
                     <h2 className="mb-2 text-sm font-semibold">Semantic Search</h2>
-                    <form onSubmit={handleSemanticSearch} className="flex gap-2">
+                    <form onSubmit={handleSemanticSearch} className="flex flex-col gap-2 sm:flex-row">
                         <input
                             type="text"
                             value={semanticQuery}
@@ -102,8 +102,8 @@ return;
                 </div>
 
                 {/* Filters */}
-                <form onSubmit={applyFilters} className="mb-6 flex flex-wrap items-end gap-3">
-                    <div className="flex-1">
+                <form onSubmit={applyFilters} className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end">
+                    <div className="w-full sm:flex-1 sm:min-w-[180px]">
                         <label className="mb-1 block text-xs font-medium">Title</label>
                         <input
                             type="text"
@@ -113,7 +113,7 @@ return;
                             className="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring w-full rounded-md border px-3 py-2 text-sm focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                         />
                     </div>
-                    <div>
+                    <div className="w-full sm:w-auto">
                         <label className="mb-1 block text-xs font-medium">Type</label>
                         <select
                             value={type}
@@ -128,7 +128,7 @@ return;
                             ))}
                         </select>
                     </div>
-                    <div>
+                    <div className="w-full sm:w-auto">
                         <label className="mb-1 block text-xs font-medium">Year</label>
                         <select
                             value={year}

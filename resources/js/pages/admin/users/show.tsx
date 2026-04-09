@@ -48,7 +48,7 @@ export default function UsersShow({ user, roles }: Props) {
                     &larr; Back to Users
                 </Link>
 
-                <h1 className="mb-6 text-2xl font-bold">{user.name}</h1>
+                <h1 className="mb-6 text-xl font-bold sm:text-2xl">{user.name}</h1>
 
                 <div className="space-y-6">
                     {/* User Details */}

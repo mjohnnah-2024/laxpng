@@ -49,8 +49,8 @@ export default function TemplatesResult({ template, fields, generatedContent }: 
                     &larr; Back to Templates
                 </Link>
 
-                <div className="mb-4 flex items-center justify-between">
-                    <h1 className="text-2xl font-bold">Generated Document</h1>
+                <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <h1 className="text-xl font-bold sm:text-2xl">Generated Document</h1>
                     <div className="flex gap-2">
                         <Button variant="outline" size="sm" onClick={handleCopy}>
                             Copy
@@ -78,7 +78,7 @@ export default function TemplatesResult({ template, fields, generatedContent }: 
                 {/* Field Summary */}
                 <div className="mt-6 rounded-lg border p-4">
                     <h2 className="mb-2 text-sm font-semibold">Values Used</h2>
-                    <dl className="grid grid-cols-2 gap-2 text-sm">
+                    <dl className="grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
                         {Object.entries(fields).map(([key, value]) => (
                             <div key={key}>
                                 <dt className="text-muted-foreground font-medium">{key}</dt>
@@ -88,7 +88,7 @@ export default function TemplatesResult({ template, fields, generatedContent }: 
                     </dl>
                 </div>
 
-                <div className="mt-6 flex gap-3">
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                     <Link href={templatesShow.url(template.id)}>
                         <Button variant="outline">Generate Again</Button>
                     </Link>

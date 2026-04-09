@@ -41,9 +41,9 @@ export default function ContractsIndex({ analyses }: Props) {
         <>
             <Head title="Contract Analysis" />
             <div className="mx-auto max-w-6xl p-4">
-                <div className="mb-6 flex items-center justify-between">
+                <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                        <h1 className="text-2xl font-bold">Contract Analysis</h1>
+                        <h1 className="text-xl font-bold sm:text-2xl">Contract Analysis</h1>
                         <p className="text-muted-foreground mt-1">
                             Upload and analyze legal documents for risks, clauses, and important dates.
                         </p>
@@ -64,7 +64,7 @@ export default function ContractsIndex({ analyses }: Props) {
                             <Link
                                 key={analysis.id}
                                 href={contractsShow.url(analysis.id)}
-                                className="hover:border-primary/50 flex items-center justify-between rounded-lg border p-4 transition-colors"
+                                className="hover:border-primary/50 flex flex-col gap-3 rounded-lg border p-4 transition-colors sm:flex-row sm:items-center sm:justify-between"
                             >
                                 <div className="min-w-0 flex-1">
                                     <h3 className="truncate font-semibold">{analysis.document_name}</h3>
@@ -72,7 +72,7 @@ export default function ContractsIndex({ analyses }: Props) {
                                         {new Date(analysis.created_at).toLocaleDateString()}
                                     </p>
                                 </div>
-                                <div className="ml-4 flex items-center gap-3">
+                                <div className="flex flex-wrap items-center gap-2 sm:ml-4">
                                     {analysis.status === 'completed' && analysis.results?.risk_level && (
                                         <span
                                             className={`rounded px-2 py-0.5 text-xs font-medium ${riskColors[analysis.results.risk_level] ?? ''}`}

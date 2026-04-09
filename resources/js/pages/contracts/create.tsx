@@ -38,7 +38,7 @@ export default function ContractsCreate({ errors }: Props) {
                     &larr; Back to Analyses
                 </Link>
 
-                <h1 className="mb-2 text-2xl font-bold">Upload Contract for Analysis</h1>
+                <h1 className="mb-2 text-xl font-bold sm:text-2xl">Upload Contract for Analysis</h1>
                 <p className="text-muted-foreground mb-6">
                     Upload a PDF document to analyze it for risks, key clauses, important dates, and recommendations.
                 </p>

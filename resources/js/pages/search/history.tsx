@@ -20,7 +20,7 @@ export default function SearchHistory({ logs }: Props) {
         <>
             <Head title="Search History" />
             <div className="mx-auto max-w-4xl p-4">
-                <h1 className="mb-6 text-2xl font-bold">Search History</h1>
+                <h1 className="mb-6 text-xl font-bold sm:text-2xl">Search History</h1>
 
                 {logs.data.length === 0 ? (
                     <p className="text-muted-foreground">No searches yet.</p>

@@ -60,13 +60,13 @@ export default function Welcome({
             </Head>
             <div className="flex min-h-screen flex-col bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a] dark:text-[#EDEDEC]">
                 {/* Header */}
-                <header className="w-full border-b border-[#e3e3e0] px-6 py-4 dark:border-[#3E3E3A]">
+                <header className="w-full border-b border-[#e3e3e0] px-4 py-4 sm:px-6 dark:border-[#3E3E3A]">
                     <div className="mx-auto flex max-w-6xl items-center justify-between">
                         <div className="flex items-center gap-2">
                             <AppLogoIcon className="h-6 w-6" />
                             <span className="text-lg font-semibold">LaxPNG</span>
                         </div>
-                        <nav className="flex items-center gap-4">
+                        <nav className="flex items-center gap-2 sm:gap-4">
                             {auth.user ? (
                                 <Link
                                     href={dashboard()}
@@ -97,18 +97,18 @@ export default function Welcome({
                 </header>
 
                 {/* Hero */}
-                <section className="flex flex-col items-center px-6 pt-20 pb-16 text-center lg:pt-28 lg:pb-24">
+                <section className="flex flex-col items-center px-4 pt-12 pb-12 text-center sm:px-6 sm:pt-16 sm:pb-14 lg:pt-28 lg:pb-24">
                     <div className="mx-auto max-w-3xl">
                         <span className="mb-4 inline-block rounded-full border border-[#e3e3e0] px-3 py-1 text-xs font-medium text-[#706f6c] dark:border-[#3E3E3A] dark:text-[#A1A09A]">
                             AI-Powered Legal Research
                         </span>
-                        <h1 className="mb-6 text-4xl leading-tight font-bold tracking-tight lg:text-5xl">
-                            Papua New Guinea Law,{' '}
+                        <h1 className="mb-6 text-2xl leading-tight font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
+                            Under active development,{' '}
                             <span className="text-[#7347FF] dark:text-[#AB9BFF]">
-                                Made Accessible
+                                PNG Law - Made Accessible
                             </span>
                         </h1>
-                        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-[#706f6c] dark:text-[#A1A09A]">
+                        <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-[#706f6c] sm:mb-10 sm:text-lg dark:text-[#A1A09A]">
                             LaxPNG brings together AI and PNG&apos;s legal framework to help
                             lawyers, students, and researchers find answers faster. Search
                             legislation, analyse contracts, and generate legal documents — all
@@ -145,10 +145,10 @@ export default function Welcome({
                 </section>
 
                 {/* Features */}
-                <section className="border-t border-[#e3e3e0] px-6 py-16 lg:py-24 dark:border-[#3E3E3A]">
+                <section className="border-t border-[#e3e3e0] px-4 py-12 sm:px-6 sm:py-16 lg:py-24 dark:border-[#3E3E3A]">
                     <div className="mx-auto max-w-6xl">
-                        <div className="mb-12 text-center">
-                            <h2 className="mb-3 text-2xl font-semibold lg:text-3xl">
+                        <div className="mb-8 text-center sm:mb-12">
+                            <h2 className="mb-3 text-xl font-semibold sm:text-2xl lg:text-3xl">
                                 Everything you need for PNG legal research
                             </h2>
                             <p className="text-[#706f6c] dark:text-[#A1A09A]">
@@ -177,9 +177,9 @@ export default function Welcome({
                 </section>
 
                 {/* CTA */}
-                <section className="border-t border-[#e3e3e0] px-6 py-16 lg:py-24 dark:border-[#3E3E3A]">
+                <section className="border-t border-[#e3e3e0] px-4 py-12 sm:px-6 sm:py-16 lg:py-24 dark:border-[#3E3E3A]">
                     <div className="mx-auto max-w-2xl text-center">
-                        <h2 className="mb-4 text-2xl font-semibold lg:text-3xl">
+                        <h2 className="mb-4 text-xl font-semibold sm:text-2xl lg:text-3xl">
                             Ready to streamline your legal research?
                         </h2>
                         <p className="mb-8 text-[#706f6c] dark:text-[#A1A09A]">
@@ -198,8 +198,8 @@ export default function Welcome({
                 </section>
 
                 {/* Footer */}
-                <footer className="border-t border-[#e3e3e0] px-6 py-8 dark:border-[#3E3E3A]">
-                    <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-[#706f6c] sm:flex-row dark:text-[#A1A09A]">
+                <footer className="border-t border-[#e3e3e0] px-4 py-6 sm:px-6 sm:py-8 dark:border-[#3E3E3A]">
+                    <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center text-sm text-[#706f6c] sm:flex-row sm:text-left dark:text-[#A1A09A]">
                         <div className="flex items-center gap-2">
                             <AppLogoIcon className="h-4 w-4" />
                             <span>LaxPNG</span>
